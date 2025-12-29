@@ -1,13 +1,13 @@
 # 🐧 My CachyOS Dotfiles
 
-A collection of configuration files for my Linux setup, focused on performance, aesthetics, and productivity. Built on **CachyOS (KDE Plasma)**, using **Ghostty** as the terminal, **Bash** with modern upgrades, and **LazyVim** for editing.
+A collection of configuration files for my Linux setup, focused on performance, aesthetics, and productivity. Built on **CachyOS (KDE Plasma)**, using **Ghostty** as the terminal, **Zsh** (recently migrated from Bash for speed) as the shell, and **LazyVim** for editing.
 
 ## 🎨 Overview
 
 * **OS:** CachyOS (Arch-based)
 * **DE:** KDE Plasma 6 (Wayland)
 * **Terminal:** [Ghostty](https://mitchellh.com/ghostty) (Fast, native, GPU-accelerated)
-* **Shell:** Bash + `ble.sh` (Syntax highlighting & autosuggestions) + Starship
+* **Shell:** Zsh + Native Plugins (Replaced Ble.sh for better latency) + Starship
 * **Editor:** Neovim (LazyVim distribution)
 * **File Manager:** Yazi (Terminal-based with image previews)
 * **Multiplexer:** Tmux
@@ -20,14 +20,14 @@ This repository is organized for use with [GNU Stow](https://www.gnu.org/softwar
 
 ```text
 .
-├── bash/           # .bashrc (Optimized with ble.sh, fzf, zoxide)
 ├── ghostty/        # Ghostty config (Catppuccin theme, ligatures)
 ├── keyboard/       # KDE Global Shortcuts (ks.kksrc)
 ├── nvim/           # LazyVim configuration
 ├── starship/       # Starship prompt setup
 ├── tmux/           # Tmux configuration
 ├── XCompose/       # Custom key sequences (e.g. for typing pipes)
-└── yazi/           # Yazi config, keymaps, and themes
+├── yazi/           # Yazi config, keymaps, and themes
+└── zsh/            # .zshrc + local plugins (syntax highlighting & autosuggestions)
 
 ```
 
@@ -44,13 +44,16 @@ sudo pacman -S --needed git stow neovim starship fzf zoxide bat eza ripgrep fd w
 
 ```
 
-### 2. Shell Enhancements (Ble.sh)
+### 2. Z Shell (Replaces Bash)
 
-The Bash setup relies on `ble.sh` for syntax highlighting and autosuggestions (similar to Zsh).
+We switched to Zsh for native performance with syntax highlighting and autosuggestions (Bash + Ble.sh was too heavy).
 
 ```bash
-# Using an AUR helper like paru or yay
-paru -S blesh-git
+# Install Zsh
+sudo pacman -S zsh
+
+# Set Zsh as default shell (requires logout/login)
+chsh -s $(which zsh)
 
 ```
 
@@ -63,14 +66,24 @@ sudo pacman -S ghostty
 
 ```
 
-### 4. Yazi & Image Preview Support
+### 4. Input Method (Fix for Ghostty Compose Key)
+
+Ghostty (GTK4) requires an Input Method to read `.XCompose` sequences on Wayland.
+
+```bash
+# fcitx5-gtk is critical for Ghostty
+sudo pacman -S fcitx5 fcitx5-gtk fcitx5-qt fcitx5-configtool
+
+```
+
+### 5. Yazi & Image Preview Support
 
 ```bash
 sudo pacman -S yazi ffmpeg p7zip jq poppler imagemagick
 
 ```
 
-### 5. Fonts
+### 6. Fonts
 
 These configs rely on **Nerd Fonts** for icons.
 
@@ -93,18 +106,30 @@ cd ~/dotfiles
 
 ```
 
-### 2. Apply Configs with Stow
+### 2. Setup Zsh Plugins
+
+This config uses local plugins to avoid bloating the Git repo. Run this **once** to download the necessary Zsh plugins:
+
+```bash
+mkdir -p zsh/.zsh/plugins
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git zsh/.zsh/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions.git zsh/.zsh/plugins/zsh-autosuggestions
+
+```
+
+### 3. Apply Configs with Stow
 
 Use `stow` to create symlinks from this folder to your `~/.config` or home directory.
 
-**Warning:** If you already have default config files (like a `.bashrc`), delete or rename them first to avoid conflicts.
+**Warning:** If you already have default config files (like a `.bashrc` or `.zshrc`), delete or rename them first to avoid conflicts.
 
 ```bash
-# Backup existing bashrc
-mv ~/.bashrc ~/.bashrc.bak
+# Backup existing shells
+mv ~/.bashrc ~/.bashrc.bak 2>/dev/null
+mv ~/.zshrc ~/.zshrc.bak 2>/dev/null
 
 # Stow the packages
-stow bash
+stow zsh
 stow ghostty
 stow nvim
 stow starship
@@ -121,12 +146,12 @@ stow keyboard
 
 ## ✨ Configuration Highlights
 
-### 🐚 Bash (`.bashrc`)
+### 🐚 Zsh (`.zshrc`)
 
-My Bash configuration is optimized for speed and interactivity. It features:
+My Zsh configuration is optimized for **latency and instant feedback**. It replaces the "clunky" Bash+Ble.sh setup with native Zsh modules:
 
-* **Early Exit:** Prevents loading heavy plugins during non-interactive sessions (scripts/scp).
-* **Ble.sh:** Provides Zsh-like syntax highlighting and autosuggestions.
+* **Instant Syntax Highlighting:** Commands colorize as you type, but without the script overhead of Ble.sh.
+* **Async Autosuggestions:** Greyed-out suggestions appear instantly without freezing the cursor.
 * **FZF Integration:** Fuzzy search for command history (`Ctrl+R`).
 * **Zoxide:** Smarter directory navigation (replaces `cd` with `z`).
 * **Starship:** A minimal, blazing fast prompt showing Git status, package versions, and more.
@@ -154,6 +179,7 @@ My Bash configuration is optimized for speed and interactivity. It features:
 
 * **Typing a Pipe `|**`: If you have issues typing pipes on certain layouts, check the `.XCompose` file.
 * *Shortcut:* `Compose Key` + `p` + `p` (Defined in `XCompose/.XCompose`).
+* **⚠️ Ghostty Note:** Ghostty is a GTK4 app and does not read `.XCompose` natively on Wayland. You **must** have `fcitx5` installed and configured (see Requirements) for these shortcuts to work inside the terminal.
 
 
 * **Yazi Hidden Files:** Press `.` to toggle hidden files.

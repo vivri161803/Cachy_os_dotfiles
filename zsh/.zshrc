@@ -39,3 +39,8 @@ ZSH_AUTOSUGGEST_USE_ASYNC=1
 if command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
 fi
+
+# --- 7. Adding pipe and forward slash
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
