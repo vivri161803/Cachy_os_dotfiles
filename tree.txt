@@ -1,0 +1,173 @@
+.
+├── bash
+│   └── .bashrc
+├── ghostty
+│   └── .config
+│       └── ghostty
+│           └── config
+├── .git
+│   ├── COMMIT_EDITMSG
+│   ├── config
+│   ├── description
+│   ├── HEAD
+│   ├── hooks
+│   │   ├── applypatch-msg.sample
+│   │   ├── commit-msg.sample
+│   │   ├── fsmonitor-watchman.sample
+│   │   ├── post-update.sample
+│   │   ├── pre-applypatch.sample
+│   │   ├── pre-commit.sample
+│   │   ├── pre-merge-commit.sample
+│   │   ├── prepare-commit-msg.sample
+│   │   ├── pre-push.sample
+│   │   ├── pre-rebase.sample
+│   │   ├── pre-receive.sample
+│   │   ├── push-to-checkout.sample
+│   │   ├── sendemail-validate.sample
+│   │   └── update.sample
+│   ├── index
+│   ├── info
+│   │   └── exclude
+│   ├── logs
+│   │   ├── HEAD
+│   │   └── refs
+│   │       ├── heads
+│   │       │   └── main
+│   │       └── remotes
+│   │           └── origin
+│   │               └── main
+│   ├── objects
+│   │   ├── 08
+│   │   │   └── 9fe898f1eed6b6f18c1f49290ad4f961115720
+│   │   ├── 0b
+│   │   │   └── 5350a4c59ce95da0ae5025a5317f81d79a70a9
+│   │   ├── 10
+│   │   │   └── eb8f22d807e00281ead3863262bcecba3fe366
+│   │   ├── 17
+│   │   │   └── f53d6f6f2429f0b13a07cdc8f4a63bcdc947a4
+│   │   ├── 18
+│   │   │   ├── 5280b0165c72d6005b4a319a8fc7ab40eada49
+│   │   │   └── fa25e32bbd3032be3b0d6533cd43ab267b9fc4
+│   │   ├── 23
+│   │   │   └── 5e144ce5cd98bf2c0f85286f0b20e063097d64
+│   │   ├── 25
+│   │   │   └── 14f9ed90d831793ec8b5ca4666040996d01e09
+│   │   ├── 26
+│   │   │   └── 1eeb9e9f8b2b4b0d119366dda99c6fd7d35c64
+│   │   ├── 2a
+│   │   │   └── bdcd8e8851be184db2dc95d417a4920d2082d2
+│   │   ├── 2c
+│   │   │   └── 134f7bc119a0f2b376b750965eb32559d37b05
+│   │   ├── 33
+│   │   │   └── 2df42adc8144ec967dca61ad8ec799d7d8971f
+│   │   ├── 38
+│   │   │   └── d40bf940bb4b6d687e1179c1e775b608cc31ae
+│   │   ├── 3e
+│   │   │   └── a1454fa3580ee1ca5e9e9e03b87e5269aed64b
+│   │   ├── 42
+│   │   │   └── 21e75867a5413b47250a33fcc7bab4afd406ad
+│   │   ├── 4c
+│   │   │   └── 1322c0b22b55bf310bdea3609cff4719092e0f
+│   │   ├── 5b
+│   │   │   └── a911e9971add0fed8ee2223c95c2cdb57a79ef
+│   │   ├── 5d
+│   │   │   └── 6c50dce955fe8b2d86106d4cc4616f5fc2fd59
+│   │   ├── 6f
+│   │   │   └── d640ca67f06513a2e0d1334e85dbe81962be29
+│   │   ├── 76
+│   │   │   └── afa6e1ae4b1da1de2287b29e0325635f3ceac8
+│   │   ├── 7b
+│   │   │   └── 911a67acb34f56a14f66224536d3bd74eece99
+│   │   ├── 7c
+│   │   │   └── 480874658bdf329eb36d3e5aabd9bf9e0636a6
+│   │   ├── 80
+│   │   │   └── ef904f319b7da2cc8557bd7af64464c44823b8
+│   │   ├── 89
+│   │   │   └── 2b5cd4addb5ccbaba685bde5873edaa1405d3a
+│   │   ├── 8a
+│   │   │   └── ee89e879ed74c435a447bb4484b29200d3698e
+│   │   ├── 8b
+│   │   │   └── a326c607f09e46b8114b81e6e0e8f47c8efde1
+│   │   ├── 8e
+│   │   │   └── 1ce0c8986fa3e2fd09a47c8fea3dfedfe3f7c3
+│   │   ├── 91
+│   │   │   └── 331ee5a45d5592c4e845c0a46ad17b1c17bcde
+│   │   ├── 9b
+│   │   │   └── d35f59069701c47e81b2cec453140cf80d61b6
+│   │   ├── 9e
+│   │   │   └── d5b0b8e865c15a4dbd16292467e7fbd8642e65
+│   │   ├── 9f
+│   │   │   └── 47e456101e248d62e3ad13c2cd727805a17494
+│   │   ├── ac
+│   │   │   └── 1161b3d2252c1112f8e4a15691eba3e38a3823
+│   │   ├── ad
+│   │   │   └── 8a64a70d0423477c121b97b962cffa3c83a2f8
+│   │   ├── af
+│   │   │   └── bf6b8d11b97f0a4632c38b09a5b4fe9d2b8ced
+│   │   ├── bb
+│   │   │   └── 927aa3a8f7eeda369a3be695fceea18d502d36
+│   │   ├── c5
+│   │   │   └── 71b60dda30afc06518031b00b8852b7dc37cbb
+│   │   ├── c9
+│   │   │   └── d688eef66a7546eaac817b4aac495921317b50
+│   │   ├── cc
+│   │   │   └── 5457ab807fad274a186d863d5b7c225948363d
+│   │   ├── d5
+│   │   │   └── 3d1e01ec84385889061794b25c85286f5f88b9
+│   │   ├── d7
+│   │   │   └── 3bfa104703557f2cb466d9c89485ae1d4f7be0
+│   │   ├── d8
+│   │   │   └── bcaf66befb907e5ed3edb7219e426753427446
+│   │   ├── e6
+│   │   │   └── 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+│   │   ├── e7
+│   │   │   └── fa89bf468fab8f0784daeef5944544b90258cc
+│   │   ├── ef
+│   │   │   └── b8ba37f8b3e6f97233f365cfb03b6836dd7c39
+│   │   ├── info
+│   │   └── pack
+│   └── refs
+│       ├── heads
+│       │   └── main
+│       ├── remotes
+│       │   └── origin
+│       │       └── main
+│       └── tags
+├── keyboard
+│   └── ks.kksrc
+├── nvim
+│   └── .config
+│       └── nvim
+│           ├── .gitignore
+│           ├── init.lua
+│           ├── lazy-lock.json
+│           ├── lazyvim.json
+│           ├── LICENSE
+│           ├── lua
+│           │   ├── config
+│           │   │   ├── autocmds.lua
+│           │   │   ├── keymaps.lua
+│           │   │   ├── lazy.lua
+│           │   │   └── options.lua
+│           │   └── plugins
+│           │       ├── example.lua
+│           │       └── tmux-navigator.lua
+│           ├── .neoconf.json
+│           ├── README.md
+│           └── stylua.toml
+├── starship
+│   └── .config
+│       └── starship.toml
+├── tmux
+│   └── .tmux.conf
+├── tree.txt
+├── XCompose
+│   └── .XCompose
+└── yazi
+    └── .config
+        └── yazi
+            ├── keymap.toml
+            ├── theme.toml
+            └── yazi.toml
+
+78 directories, 93 files
