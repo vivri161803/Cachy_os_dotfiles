@@ -2,8 +2,18 @@
 font-family = "JetBrainsMono Nerd Font"
 font-size = 13
 
-# Window (A bit of padding looks nice in tiling WMs)
-# window-decoration = false # Removes title bar (cleaner for KDE)
+# --- Transparency & Blur ---
+
+# Opacity level (0.0 to 1.0)
+# 0.9 = Slight transparency (Recommended)
+# 0.5 = Very transparent
+# 1.0 = Solid (Default)
+background-opacity = 0.85
+
+# Blur strength (Frosted glass effect)
+# Requires a compositor (KDE Plasma handles this natively on Wayland)
+# Set to 0 to disable. 20-40 is a good "frosted" look.
+background-blur-radius = 20
 
 # Theme
 theme = Catppuccin Mocha
