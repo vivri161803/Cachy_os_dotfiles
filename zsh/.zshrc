@@ -21,11 +21,6 @@ alias grep='grep --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-# Zoxide (Smart CD) replacement
-if command -v zoxide &>/dev/null; then
-  eval "$(zoxide init zsh)"
-  alias cd='z'
-fi
 
 # --- 4. Load Plugins (Must be near the end) ---
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -40,7 +35,17 @@ if command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
 fi
 
-# --- 7. Adding pipe and forward slash
-GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS=@im=fcitx
+# --- 7. Adding yazi command integration
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+# --- 8. Zoxide (Smart CD) replacement
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)"
+  alias cd='z'
+fi

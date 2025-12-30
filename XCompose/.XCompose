@@ -1,2 +1,4 @@
+include "%L"
 <Multi_key> <p> : "|"   # This means Compose + p + p = |
-<Multi_key> <i> : "~"   # This means Compose + p + p = |
+<Multi_key> <slash> : "\\" backslash
+<Multi_key> <i> : "~"   

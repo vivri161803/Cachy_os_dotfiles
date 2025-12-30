@@ -18,24 +18,6 @@ background-blur-radius = 20
 # Theme
 theme = Catppuccin Mocha
 
-# --- Splits & Navigation ---
-# Split the window (similar to Tmux/Vim)
-# Ctrl+s then "v" for vertical split, "h" for horizontal
-keybind = ctrl+s>v=new_split:right
-keybind = ctrl+s>h=new_split:down
-
-# Move between splits using Ctrl + Vim keys
-keybind = ctrl+h=goto_split:left
-keybind = ctrl+j=goto_split:down
-keybind = ctrl+k=goto_split:up
-keybind = ctrl+l=goto_split:right
-
-# Resize splits with Ctrl + Arrow keys
-keybind = ctrl+up=resize_split:up,10
-keybind = ctrl+down=resize_split:down,10
-keybind = ctrl+left=resize_split:left,10
-keybind = ctrl+right=resize_split:right,10
-
 # Transparency & Blur (The "Rice" Look)
 # 0.9 = 90% opaque. Lower it if you want it more transparent.
 background-opacity = 0.9
